@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio for Mac
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{B80E6721-1E6D-FF18-3A8B-AE67723A45FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TERRABELLUM", "Assembly-CSharp.csproj", "{B80E6721-1E6D-FF18-3A8B-AE67723A45FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
