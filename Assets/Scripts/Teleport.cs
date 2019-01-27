@@ -16,10 +16,12 @@ public class Teleport : MonoBehaviour {
         if (collision.gameObject.tag == player.tag){
             //Freeze.
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            player.GetComponent<Animator>().enabled = false;
             yield return new WaitForSeconds(twait);
             player.transform.position = tele_point.transform.position;
             player.transform.GetChild(0).transform.position = player.transform.position;
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            player.GetComponent<Animator>().enabled = true;
         }
 	}
         
