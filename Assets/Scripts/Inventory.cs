@@ -8,19 +8,41 @@ public class Inventory : MonoBehaviour
 {
     //public Image[] itemImages = new Image[numItemSlots];
     public Dictionary<string, Dictionary<string, ArrayList>> inventory = new Dictionary<string, Dictionary<string, ArrayList>>();
-    private Dictionary<string, ArrayList> fp = new Dictionary<string, ArrayList>();
-    private Dictionary<string, ArrayList> pj = new Dictionary<string, ArrayList>();
+    private ArrayList fp = new ArrayList();
+    private ArrayList pj = new ArrayList();
+    private ArrayList sh = new ArrayList();
+    public Queue q = new Queue();
 
 	private void Start()
 	{
-        inventory.Add("ForcePush", null);
-        inventory.Add("Projectile", null);
+        
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-        //inventory.Add(collision.name, )
+        if (collision.tag == "Enemy"){
+            if (collision.name.Contains("force"))
+            {
+                fp.Add(collision.name);
+                q.Enqueue(collision.name);
+            }
+            else if (collision.name.Contains("projectile"))
+            {
+                pj.Add(collision.name);
+                q.Enqueue(collision.name);
+            }
+            else
+            {
+                sh.Add(collision.name);
+                q.Enqueue(collision.name);
+            }
+            
+        }
 	}
+
+    public void UseAbility() {
+        q.Dequeue();
+    }
 	//public Item[] items = new Item[numItemSlots];
 	//public const int numItemSlots = 4;
 	//public void AddItem(Item itemToAdd)
