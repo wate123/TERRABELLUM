@@ -9,13 +9,13 @@ public class Controller : PhysicsObject
     public float jumpTakeOffSpeed = 7;
 
     private SpriteRenderer spriteRenderer;
-    //private Animator animator;
+    private Animator animator;
 
     // Use this for initialization
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     protected override void ComputeVelocity()
@@ -32,6 +32,7 @@ public class Controller : PhysicsObject
         {
             if (velocity.y > 0)
             {
+                //animator.SetBool("isJump", true);
                 velocity.y = velocity.y * 0.5f;
             }
         }
@@ -42,9 +43,10 @@ public class Controller : PhysicsObject
             spriteRenderer.flipX = !spriteRenderer.flipX;
         }
 
-        //animator.SetBool("grounded", grounded);
-        //animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
+        animator.SetBool("grounded", grounded);
+        animator.SetFloat("Speed", Mathf.Abs(velocity.x) / maxSpeed);
 
         targetVelocity = move * maxSpeed;
+
     }
 }
