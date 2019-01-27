@@ -20,6 +20,7 @@ public class EnemyMovement : MonoBehaviour {
 
     void Wander () {
         Debug.Log("ss");
+        current.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         current.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-wanderSpeedRange, wanderSpeedRange), 0);
     }
 
@@ -34,6 +35,6 @@ public class EnemyMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        current.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-wanderSpeedRange, wanderSpeedRange) * Time.deltaTime, 0);
+        //current.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-wanderSpeedRange, wanderSpeedRange) * Time.deltaTime, 0);
 	}
 }
